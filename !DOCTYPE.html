@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rate Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f8f9fa;
+    }
+    .rating-card {
+      text-align: center;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+    }
+    .stars {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .stars span {
+      font-size: 30px;
+      cursor: pointer;
+      color: gray;
+    }
+    .stars span:hover,
+    .stars span.selected {
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+  <div class="rating-card">
+    <h2>Rate Us</h2>
+    <p>We value your feedback. Please leave a rating!</p>
+    <div class="stars">
+      <span data-value="1">★</span>
+      <span data-value="2">★</span>
+      <span data-value="3">★</span>
+      <span data-value="4">★</span>
+      <span data-value="5">★</span>
+    </div>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    const stars = document.querySelectorAll('.stars span');
+    const message = document.getElementById('message');
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const rating = star.getAttribute('data-value');
+        // Highlight stars
+        stars.forEach(s => s.classList.remove('selected'));
+        for (let i = 0; i < rating; i++) {
+          stars[i].classList.add('selected');
+        }
+        // Redirect based on rating
+        if (rating == 5) {
+          window.location.href = "https://www.google.com/search?hl=en-US&rlz=1CDGOYI_enAE1107AE1107&sca_esv=77c72257878c30ef&cs=1&kgmid=%2Fg%2F11ltjvwb64&q=Flame%27N%27Go&shndl=30&source=sh%2Fx%2Floc%2Fact%2Fm1%2F3&kgs=d812a84775cb9721";
+        } else {
+          window.location.href = "https://www.blackphoenix.com";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
